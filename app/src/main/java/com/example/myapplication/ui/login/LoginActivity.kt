@@ -64,22 +64,6 @@ class LoginActivity : AppCompatActivity() {
             }
         })
 
-//        loginViewModel.loginResult.observe(this@LoginActivity, Observer {
-//            val loginResult = it ?: return@Observer
-//
-//            loading.visibility = View.GONE
-//            if (loginResult.error != null) {
-//                showLoginFailed(loginResult.error)
-//            }
-//            if (loginResult.success != null) {
-//                updateUiWithUser(loginResult.success)
-//            }
-//            setResult(Activity.RESULT_OK)
-//
-//            //Complete and destroy login activity once successful
-//            finish()
-//        })
-
         username.afterTextChanged {
             loginViewModel.loginDataChanged(
                 username.text.toString(),
@@ -113,29 +97,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
-//    private fun updateUiWithUser(model: LoggedInUserView) {
-//        val welcome = getString(R.string.welcome)
-//        val displayName = model.displayName
-//        // TODO : initiate successful logged in experience
-//        Toast.makeText(
-//            applicationContext,
-//            "$welcome $displayName",
-//            Toast.LENGTH_LONG
-//        ).show()
-//
-//        //val editText = findViewById<EditText>(R.id.editText)
-//        //val message = editText.text.toString()
-//        val intent = Intent(this, UpdateZoneActivity::class.java).apply {
-//            putExtra(EXTRA_MESSAGE, "1234")
-//        }
-//        startActivity(intent)
-//    }
-
-    private fun showLoginFailed(@StringRes errorString: Int) {
-        Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
-    }
-
+    
     private fun beginLogin(userString: String, password: String) {
         disposable = sqareApiServe.loginCheck(userString, password)
             .subscribeOn(Schedulers.io())

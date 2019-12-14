@@ -33,9 +33,7 @@ class UpdateZoneActivity : AppCompatActivity() {
     }
 
     fun ClickUpdatebutton(view: View) {
-        //val amount: Float = java.lang.Float.valueOf(editTextHello?.text.toString())
         beginUpdate(editTextHello?.text.toString(), sessionToken, objectId)
-        //Toast.makeText(this, amount.toString(), Toast.LENGTH_LONG).show()
     }
 
     private fun beginUpdate(updateTime: String, sessionToken: String, objectId: String) {
