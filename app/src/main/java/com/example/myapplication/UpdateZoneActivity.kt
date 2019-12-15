@@ -16,13 +16,14 @@ import io.reactivex.schedulers.Schedulers
 class UpdateZoneActivity : AppCompatActivity() {
 
     private var disposable: Disposable? = null
-    private var editTextHello: EditText? = null
+    private var editTextTimezone: EditText? = null
     private var objectId: String = ""
     private var sessionToken: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_zone)
-        editTextHello = findViewById(R.id.timeZoneEditText)
+        editTextTimezone = findViewById(R.id.timeZoneEditText)
 
         objectId = intent.getStringExtra(OBJECT_ID)
         sessionToken = intent.getStringExtra(TOKEN)
@@ -33,7 +34,7 @@ class UpdateZoneActivity : AppCompatActivity() {
     }
 
     fun ClickUpdatebutton(view: View) {
-        beginUpdate(editTextHello?.text.toString(), sessionToken, objectId)
+        beginUpdate(editTextTimezone?.text.toString(), sessionToken, objectId)
     }
 
     private fun beginUpdate(updateTime: String, sessionToken: String, objectId: String) {
